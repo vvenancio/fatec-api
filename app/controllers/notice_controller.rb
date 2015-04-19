@@ -3,7 +3,7 @@ class NoticeController < ApplicationController
 		@notices = Notice.all
 		
 		respond_to do |format|
-			format.json { render :json => @notices.to_json }
+			format.json { render json: @notices.to_json }
 		end
 	end
 
@@ -12,11 +12,15 @@ class NoticeController < ApplicationController
 		course ||= []
 
 		@notice_selected.each do |element|
-			course << Course.find(element.to_i).notices
+			notice = Course.find(element.to_i).notices
+			
+			unless course.include? notice
+				course << notice
+			end
 		end
 
 		respond_to do |format|
-			format.json { render :json => course.to_json }
+			format.json { render json: course.to_json }
 		end
 	end
 end
