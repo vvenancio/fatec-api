@@ -12,7 +12,6 @@ class NoticeController < ApplicationController
 	end
 
 	def show_selected
-		@course_selected = params[:ids].split(',')
-		self.filter_by_course(@course_selected)
+		self.filter_by_course
 	end
 end

@@ -12,7 +12,6 @@ class InternshipController < ApplicationController
 	end
 
 	def show_selected
-		@course_selected = params[:ids].split(',')
-		self.filter_by_course(@course_selected, 'internships')
+		self.filter_by_course('internships')
 	end
 end
