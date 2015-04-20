@@ -1,4 +1,8 @@
+require_relative 'commum_methods'
+
 class InternshipController < ApplicationController
+	include CommumMethods
+
 	def index
 		@internships = Internship.all
 		
@@ -9,18 +13,6 @@ class InternshipController < ApplicationController
 
 	def show_selected
 		@course_selected = params[:ids].split(',')
-		course ||= []
-
-		@course_selected.each do |element|
-			internship = Course.find(element.to_i).internships
-			
-			unless course.include? internship
-				course << internship
-			end
-		end
-
-		respond_to do |format|
-			format.json { render json: course.to_json }
-		end
+		self.filter_by_course(@course_selected, 'internships')
 	end
 end
