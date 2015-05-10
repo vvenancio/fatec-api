@@ -1,5 +1,5 @@
 module CommumMethods
-	def filter_by_course(looking_for='notices')
+	def filter_by_course(looking_for = 'notices')
 		args = params[:ids].split(',')
 		elements ||= []	
 		
@@ -8,9 +8,7 @@ module CommumMethods
 			finder = Course.find(element.to_i).notices unless looking_for.eql? 'internships'
 			finder = Course.find(element.to_i).internships unless looking_for.eql? 'notices'
 			
-			unless elements.include? finder
-				elements << finder
-			end
+			elements << finder unless elements.include? finder
 		end
 
 		respond_to do |format|
