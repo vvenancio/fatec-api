@@ -1,6 +1,7 @@
 require_relative 'commum_methods'
 
 class NoticeController < ApplicationController
+	skip_before_action :verify_authenticity_token
 	include CommumMethods
 
 	def index
