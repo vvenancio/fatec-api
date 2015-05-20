@@ -1,4 +1,17 @@
-ActiveRecord::Schema.define(version: 20150414223445) do
+# encoding: UTF-8
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you'll amass, the slower it'll run and the greater likelihood for issues).
+#
+# It's strongly recommended that you check this file into your version control system.
+
+ActiveRecord::Schema.define(version: 20150517044112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,19 +51,18 @@ ActiveRecord::Schema.define(version: 20150414223445) do
     t.text    "requirements"
     t.integer "semester"
     t.text    "benefits"
-    t.integer "access"
     t.text    "observation"
   end
 
   add_index "internships", ["enterprise_id"], name: "index_internships_on_enterprise_id", using: :btree
 
   create_table "notices", force: :cascade do |t|
-    t.date    "publication_time"
-    t.string  "title"
-    t.string  "reference"
-    t.string  "picture"
-    t.text    "description"
-    t.integer "access"
+    t.date   "publication_time"
+    t.string "title"
+    t.string "reference"
+    t.string "picture"
+    t.text   "description"
+    t.text   "reduced_description"
   end
 
   add_foreign_key "courses_internships", "courses"

@@ -13,6 +13,6 @@ class InternshipController < ApplicationController
 	end
 
 	def show_selected
-		self.filter_by_course('internships')
+		self.filter_by_course :internships
 	end
 end
