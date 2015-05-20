@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150520075246) do
+ActiveRecord::Schema.define(version: 20150520175224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,21 +21,19 @@ ActiveRecord::Schema.define(version: 20150520075246) do
     t.string "name"
   end
 
-  create_table "courses_internships", force: :cascade do |t|
+  create_table "courses_internships", id: false, force: :cascade do |t|
     t.integer "course_id"
     t.integer "internship_id"
   end
 
-  add_index "courses_internships", ["course_id"], name: "index_courses_internships_on_course_id", using: :btree
-  add_index "courses_internships", ["internship_id"], name: "index_courses_internships_on_internship_id", using: :btree
+  add_index "courses_internships", ["course_id", "internship_id"], name: "index_courses_internships_on_course_id_and_internship_id", unique: true, using: :btree
 
-  create_table "courses_notices", force: :cascade do |t|
+  create_table "courses_notices", id: false, force: :cascade do |t|
     t.integer "course_id"
     t.integer "notice_id"
   end
 
-  add_index "courses_notices", ["course_id"], name: "index_courses_notices_on_course_id", using: :btree
-  add_index "courses_notices", ["notice_id"], name: "index_courses_notices_on_notice_id", using: :btree
+  add_index "courses_notices", ["course_id", "notice_id"], name: "index_courses_notices_on_course_id_and_notice_id", unique: true, using: :btree
 
   create_table "enterprises", force: :cascade do |t|
     t.string "fantasy_name"
