@@ -1,6 +1,4 @@
 class CourseController < ApplicationController
-	skip_before_action :verify_authenticity_token
-	
 	def index
 		@courses = Course.all
 		
