@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :notice
+  resources :notices
   
-  resources :course
+  resources :courses
   
-  resources :enterprise do
-    resources :internship
+  resources :enterprises do
+    resources :internships
   end
   
 end
