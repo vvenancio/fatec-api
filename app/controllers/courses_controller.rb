@@ -1,10 +1,9 @@
-class CourseController < ApplicationController
+class CoursesController < ApplicationController
+	respond_to :html, :json
+
 	def index
 		@courses = Course.all
-		
-		respond_to do |format|
-			format.json { render json: @courses.to_json }
-		end
+		respond_with  @courses
 	end
 
 	def show

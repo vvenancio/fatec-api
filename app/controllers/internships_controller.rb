@@ -1,4 +1,4 @@
-class InternshipController < ApplicationController
+class InternshipsController < ApplicationController
 	def index
 		@internships = Internship.all.includes([:enterprise, :courses])
 		
