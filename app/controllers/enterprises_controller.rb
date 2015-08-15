@@ -9,9 +9,5 @@ class EnterprisesController < ApplicationController
 
 	def show
 		@enterprise = Enterprise.find(params[:id])
-
-		respond_to do |format|
-			format.json { render json: @enterprise.to_json }
-		end
 	end
 end
