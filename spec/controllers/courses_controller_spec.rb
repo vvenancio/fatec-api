@@ -29,9 +29,9 @@ RSpec.describe CoursesController, type: :controller do
             expect(response).to be_success
           end
 
-          # it 'renders all courses into json file' do
-          #   expect(response.body).to eql(json.in)
-          # end
+          it 'renders all courses into json file' do
+            expect(response.body).to eq(Course.all.to_json)
+          end
         end
     end
   end
