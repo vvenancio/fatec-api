@@ -39,7 +39,6 @@ class CoursesController < ApplicationController
 
 	def destroy
 		if @course.destroy
-			binding.pry
 			redirect_to courses_path, notice: 'Curso excluído com sucesso!'
 		else
 			redirect_to courses_path, alert: 'Falha ao excluir curso'

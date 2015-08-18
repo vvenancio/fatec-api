@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe CoursesController, type: :controller do
   let(:user) { create(:user) }
-  let(:course) { create(:course) }
+  let!(:course) { create(:course) }
   let(:courses) { create_list(:course, 3) }
 
   before { sign_in user }
@@ -11,6 +11,7 @@ RSpec.describe CoursesController, type: :controller do
     before { get :index }
 
     it 'assigns courses' do
+      courses << course
       expect(assigns(:courses)).to match_array(courses)
     end
 
