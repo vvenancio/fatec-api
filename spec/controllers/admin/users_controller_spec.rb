@@ -71,4 +71,81 @@ RSpec.describe Admin::UsersController, type: :controller do
     end
   end
 
+  context 'GET #show' do
+    before { get :show, id: user.id }
+
+    it 'assigns user' do
+      expect(assigns(:user)).not_to be_nil
+    end
+
+    context 'on view' do
+      render_views
+
+      it 'renders the template' do
+        expect(response).to render_template(:show)
+      end
+    end
+  end
+
+  context 'GET #edit' do
+    before { get :edit, id: user.id }
+
+    it 'assigns user' do
+      expect(assigns(:user)).not_to be_nil
+    end
+
+    context 'on view' do
+      render_views
+
+      it 'renders the template' do
+        expect(response).to render_template(:edit)
+      end
+    end
+  end
+
+  context 'PATCH #update' do
+    context 'on success' do
+      it 'updates an user' do
+        patch :update, id: user.id, user: { name: 'Pedro' }
+        user_before_update = user.name
+        user.reload
+        expect(user.name).not_to eq(user_before_update)
+        expect(response).to redirect_to admin_user_path user
+      end
+
+      context 'on update params' do
+        it 'doesnt update an user' do
+          expect do
+            patch :update, id: user.id, user: { password: 'Pedro123' }
+          end.not_to change user.reload, :password
+        end
+      end
+    end
+
+    context 'failure' do
+      it 'does not update user' do
+        expect do
+          patch :update, id: user.id, user: { name: nil }
+          expect(response).to render_template(:edit)
+        end.not_to change user.reload, :name
+      end
+    end
+  end
+
+  context 'DELETE #destroy' do
+    after { expect(response).to redirect_to admin_users_path }
+
+    it 'destroys an user' do
+      another_user = create(:user)
+      expect do
+        delete :destroy, id: another_user.id
+      end.to change(User, :count).by(-1)
+    end
+
+    it 'does not destroy a current_user' do
+      expect do
+        delete :destroy, id: subject.current_user.id
+      end.to change(User, :count).by(0)
+    end
+  end
 end

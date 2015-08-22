@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe CoursesController, type: :controller do
   let(:user) { create(:user) }
-  let(:course) { create(:course) }
+  let!(:course) { create(:course) }
   let(:courses) { create_list(:course, 3) }
 
   before { sign_in user }
@@ -11,6 +11,7 @@ RSpec.describe CoursesController, type: :controller do
     before { get :index }
 
     it 'assigns courses' do
+      courses << course
       expect(assigns(:courses)).to match_array(courses)
     end
 
@@ -28,9 +29,9 @@ RSpec.describe CoursesController, type: :controller do
             expect(response).to be_success
           end
 
-          # it 'renders all courses into json file' do
-          #   expect(response.body).to eql(json.in)
-          # end
+          it 'renders all courses into json file' do
+            expect(response.body).to eq(Course.all.to_json)
+          end
         end
     end
   end

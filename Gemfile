@@ -15,8 +15,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'devise'
 
 group :development do
-  gem 'better_errors'
-  gem 'pry-rails'
+  gem 'better_errors'  
 end
 
 group :development, :test do
@@ -26,6 +25,7 @@ group :development, :test do
   gem 'spring', '~> 1.3.6'
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails', '~> 4.0'
+  gem 'pry-rails'
 end
 
 group :test do
