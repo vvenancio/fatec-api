@@ -8,5 +8,9 @@ Rails.application.routes.draw do
   resources :enterprises do
     resources :internships
   end
+
+  namespace :admin do
+    resources :users
+  end
   
 end

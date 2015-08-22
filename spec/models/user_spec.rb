@@ -20,8 +20,7 @@ RSpec.describe User, type: :model do
 
   context 'on roles' do
     it 'must not be empty' do
-      expect(User::ROLES).not_to be_empty
+      expect(User.roles).not_to be_empty
     end
   end
-
 end

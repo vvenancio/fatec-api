@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true
 
-  ROLES = [:admin, :operator]
+  enum role: [:operator, :admin]
 end

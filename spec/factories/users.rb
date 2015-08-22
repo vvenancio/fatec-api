@@ -7,5 +7,9 @@ FactoryGirl.define do
     trait :invalid do
       name nil
     end
+
+    trait :admin do
+      role :admin
+    end
   end
 end
