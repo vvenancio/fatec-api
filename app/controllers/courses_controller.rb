@@ -4,11 +4,6 @@ class CoursesController < ApplicationController
 
 	def index
 		@courses = Course.all
-
-		respond_to do |format|
-			format.html #index.html.haml
-			format.json { render json: @courses.to_json }
-		end		
 	end
 
 	def new

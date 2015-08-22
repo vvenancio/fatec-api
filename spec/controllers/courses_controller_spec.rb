@@ -17,22 +17,10 @@ RSpec.describe CoursesController, type: :controller do
 
     context 'on view' do
       render_views
-      
+
       it 'renders the template' do
         expect(response).to render_template(:index)
       end
-
-        context 'when JSON request' do
-          before { get :index, format: :json }
-
-          it 'returns http status 200' do
-            expect(response).to be_success
-          end
-
-          it 'renders all courses into json file' do
-            expect(response.body).to eq(Course.all.to_json)
-          end
-        end
     end
   end
 
@@ -61,7 +49,7 @@ RSpec.describe CoursesController, type: :controller do
     end
   end
 
-  context 'when GET #show' do 
+  context 'when GET #show' do
     before { get :show, id: course.id }
 
     context 'on view' do
@@ -102,7 +90,7 @@ RSpec.describe CoursesController, type: :controller do
     end
 
     context 'on failure' do
-      before { patch :update, id: course.id, 
+      before { patch :update, id: course.id,
                               course: attributes_for(:course, :invalid) }
 
       it 'does not update a course' do
