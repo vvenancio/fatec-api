@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe Enterprise, type: :model do
   let(:enterprise) { create(:enterprise) }
 
+  it { should have_many(:internships) }
+
   context 'on validations' do
     it 'is valid' do
       expect(enterprise).to be_valid

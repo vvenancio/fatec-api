@@ -8,7 +8,7 @@ RSpec.shared_examples 'Routing Error' do
 
       before { sign_in user }
 
-      it 'raises an routing exception' do
+      it 'raises a routing exception' do
         expect { get :index }.to raise_error(ActionController::RoutingError)
       end
     end
