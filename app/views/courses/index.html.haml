@@ -1,0 +1,19 @@
+%h1 Cursos
+- unless @courses.empty?
+  %table.table.table-hover
+    %thead
+      %tr
+        %td= :name
+        %td= :abreviation
+        %td{ colspan: 3 }
+    %tbody
+      - @courses.each do |course|
+        %tr
+          %td= course.name
+          %td= course.abreviation
+          %td= link_to 'Visualizar', course_path(course)
+          %td= link_to 'Editar', edit_course_path(course)
+          %td
+            = link_to 'Apagar', course_path(course), method: :delete, data: { confirm: "Deseja excluir a empresa #{course.name}?" }
+- else
+  %span Não há cursos cadastradas

@@ -1,4 +1,13 @@
-= form_for(@course) do |f|
+= form_for @course do |f|
+
+  = f.label :name
+  %br
   = f.text_field :name
+  %br
+
+  = f.label :abreviation
+  %br
   = f.text_field :abreviation
+  %br
+
   = f.submit 'Gravar'

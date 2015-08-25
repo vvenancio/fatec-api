@@ -1,0 +1,21 @@
+%h1 Empresas
+- unless @enterprises.empty?
+  %table.table.table-hover
+    %thead
+      %tr
+        %td= :fantasy_name
+        %td= :corporate_name
+        %td= :site
+        %td{ colspan: 3 }
+    %tbody
+      - @enterprises.each do |enterprise|
+        %tr
+          %td= enterprise.fantasy_name
+          %td= enterprise.corporate_name
+          %td= enterprise.site
+          %td= link_to 'Visualizar', enterprise_path(enterprise)
+          %td= link_to 'Editar', edit_enterprise_path(enterprise)
+          %td
+            = link_to 'Apagar', enterprise_path(enterprise), method: :delete, data: { confirm: "Deseja excluir a empresa #{enterprise.fantasy_name}?" }
+- else
+  %span Não há empresas cadastradas
