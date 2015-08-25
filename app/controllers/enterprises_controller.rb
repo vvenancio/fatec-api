@@ -3,8 +3,8 @@ class EnterprisesController < ApplicationController
   before_action :find_enterprise, except: [:new, :create, :index]
 
   def index
-		@enterprises = Enterprise.all
-	end
+    @enterprises = Enterprise.all
+  end
 
   def new
     @enterprise = Enterprise.new
@@ -20,7 +20,7 @@ class EnterprisesController < ApplicationController
     end
   end
 
-	def show; end
+  def show; end
 
   def edit; end
 
