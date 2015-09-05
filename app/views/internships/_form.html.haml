@@ -1,0 +1,22 @@
+= simple_form_for([@internship.enterprise, @internship], html: { class: 'form-horizontal' }) do |f|
+
+  = f.input :title
+
+  = f.input :publication_time, as: :date
+
+  = f.input :start_date, as: :date
+
+  = f.input :end_date, as: :date
+
+  = f.input :requirements, as: :text
+
+  = f.input :semester, collection: 1..8
+
+  = f.input :benefits, as: :text
+
+  = f.input :observation, as: :text
+
+  = f.association :courses
+
+  = f.button :submit, 'Gravar'
+

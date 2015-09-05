@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.4'
 gem 'pg'
 gem 'less-rails'
 gem 'haml'
@@ -13,9 +13,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'twitter-bootstrap-rails'
 gem 'therubyracer', platforms: :ruby
 gem 'devise'
+gem 'simple_form'
 
 group :development do
-  gem 'better_errors'  
+  gem 'better_errors'
 end
 
 group :development, :test do

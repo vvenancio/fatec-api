@@ -1,13 +1,7 @@
-= form_for @course do |f|
+= simple_form_for(@course, html: { class: 'form-horizontal' }) do |f|
 
-  = f.label :name
-  %br
-  = f.text_field :name
-  %br
+  = f.input :name
 
-  = f.label :abreviation
-  %br
-  = f.text_field :abreviation
-  %br
+  = f.input :abreviation
 
-  = f.submit 'Gravar'
+  = f.button :submit, 'Gravar'

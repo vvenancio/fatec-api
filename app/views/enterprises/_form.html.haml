@@ -1,17 +1,9 @@
-= form_for @enterprise do |f|
- = f.label :corporate_name
- %br
- = f.text_field :corporate_name
- %br
+= simple_form_for(@enterprise, html: { class: 'form-horizontal' }) do |f|
 
- = f.label :fantasy_name
- %br
- = f.text_field :fantasy_name
- %br
+ = f.input :corporate_name
 
- = f.label :site
- %br
- = f.text_field :site
- %br
+ = f.input :fantasy_name
 
- = f.submit 'Enviar'
+ = f.input :site
+
+ = f.button :submit, 'Enviar'

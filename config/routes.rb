@@ -19,9 +19,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :courses, only: :index
-      resources :internships, only: :index
-      resources :notices, only: :index
+      resources :courses, only: [:index]
+      resources :internships, only: [:index]
+      resources :notices, only: [:index]
     end
   end
 end
