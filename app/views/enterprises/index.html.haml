@@ -6,6 +6,7 @@
         %td= :fantasy_name
         %td= :corporate_name
         %td= :site
+        %td= :estágio
         %td{ colspan: 3 }
     %tbody
       - @enterprises.each do |enterprise|
@@ -13,6 +14,7 @@
           %td= enterprise.fantasy_name
           %td= enterprise.corporate_name
           %td= enterprise.site
+          %td= link_to 'Adicionar', new_enterprise_internship_path(enterprise)
           %td= link_to 'Visualizar', enterprise_path(enterprise)
           %td= link_to 'Editar', edit_enterprise_path(enterprise)
           %td
