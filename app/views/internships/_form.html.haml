@@ -2,15 +2,13 @@
 
   = f.input :title
 
-  = f.input :publication_time, as: :date
-
   = f.input :start_date, as: :date
 
   = f.input :end_date, as: :date
 
   = f.input :requirements, as: :text
 
-  = f.input :semester, collection: 1..8
+  = f.input :semester, collection: 1..8, include_blank: false
 
   = f.input :benefits, as: :text
 

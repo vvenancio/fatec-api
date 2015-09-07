@@ -9,5 +9,11 @@ FactoryGirl.define do
     benefits 'Bolsa auxílio de R$ 300,00'
     observation nil
     title 'STARTER GFT'
+
+    after(:build) do |internship|
+      ['ADS', 'PM'].each do |course|
+        internship.courses << create(:course, name: course)
+      end
+    end
   end
 end

@@ -1,0 +1,33 @@
+%h1 Estágios
+- unless @internships.empty?
+  %table.table.table-hover
+    %thead
+      %tr
+        %td= :title
+        %td= :semester
+        %td= :publication_time
+        %td= :start_date
+        %td= :end_date
+        %td{ colspan: 3 }
+    %tbody
+      - @internships.each do |internship|
+        %tr
+          %td= internship.title
+          %td= internship.semester
+          %td= internship.publication_time
+          %td= internship.start_date
+          %td= internship.end_date
+          %td
+            = link_to 'Adicionar',
+            new_enterprise_internship_path(internship.enterprise)
+          %td
+            = link_to 'Visualizar',
+            enterprise_internship_path(internship.enterprise, internship)
+          %td
+            = link_to 'Editar',
+            edit_enterprise_internship_path(internship.enterprise, internship)
+          %td
+            = link_to 'Apagar',
+            enterprise_internship_path(internship.enterprise, internship), method: :delete, data: { confirm: "Deseja excluir a vaga #{internship.title}?" }
+- else
+  %span Não há estágios cadastrados para esta empresa
