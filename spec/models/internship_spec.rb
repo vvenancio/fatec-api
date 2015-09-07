@@ -17,6 +17,7 @@ RSpec.describe Internship, type: :model do
       it { is_expected.to validate_presence_of(:publication_time) }
       it { is_expected.to validate_presence_of(:requirements) }
       it { is_expected.to validate_presence_of(:benefits) }
+      it { is_expected.to validate_presence_of(:courses) }
     end
 
     context 'on ivalid' do

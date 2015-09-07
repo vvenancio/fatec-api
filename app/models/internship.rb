@@ -8,4 +8,5 @@ class Internship < ActiveRecord::Base
   validates :publication_time, presence: true
   validates :requirements, presence: true
   validates :benefits, presence: true
+  validates :courses, presence: true
 end

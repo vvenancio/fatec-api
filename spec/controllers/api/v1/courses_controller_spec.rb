@@ -8,7 +8,7 @@ RSpec.describe Api::V1::CoursesController, type: :controller do
       expect(response).to be_success
     end
 
-    it 'renders all courses into json file' do
+    it 'renders all courses to a json' do
       expect(response.body).to eq(Course.all.to_json)
     end
   end

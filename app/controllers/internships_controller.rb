@@ -1,16 +1,10 @@
 class InternshipsController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_internship, except: [:index, :new, :create]
 
   def index
     @internships = Internship.where("enterprise_id = ?", params[:enterprise_id])
                              .order('id DESC')
-
-    # respond_to do |format|
-    #   format.json {
-        #   render json: @internships.order('internships.id desc')
-        #                            .to_json(include: [:enterprise, :courses])
-        # }
-    # end
   end
 
   def new
@@ -31,8 +25,27 @@ class InternshipsController < ApplicationController
     end
   end
 
-  def show
-    @internship = Internship.find(params[:id])
+  def show; end
+
+  def edit; end
+
+  def update
+    if @internship.update(internship_params)
+      redirect_to enterprise_internships_path(@internship.enterprise),
+                  notice: 'Salvo com sucesso!'
+    else
+      render :edit, alert: 'Falha ao atualizar'
+    end
+  end
+
+  def destroy
+    message = if @internship.destroy
+      { notice: 'Excluido com sucesso!' }
+    else
+      { altert: 'Falha ao excluir!' }
+    end
+
+    redirect_to enterprise_internships_path(@internship.enterprise), message
   end
 
   private
@@ -46,5 +59,9 @@ class InternshipsController < ApplicationController
 
   def set_enterprise
     @internship.enterprise = Enterprise.find(params[:enterprise_id])
+  end
+
+  def find_internship
+    @internship = Internship.find(params[:id])
   end
 end

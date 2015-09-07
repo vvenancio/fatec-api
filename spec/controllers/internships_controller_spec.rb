@@ -58,14 +58,91 @@ RSpec.describe InternshipsController, type: :controller do
         end.to change(Internship, :count).by(1)
       end
     end
+
+    context 'on failure' do
+      it 'renders new template' do
+        expect do
+          post :create, enterprise_id: internship.enterprise,
+          internship: attributes_for(:internship).merge(
+            course_ids: []
+          )
+
+          expect(response).to render_template(:new)
+        end.to change(Internship, :count).by(0)
+      end
+    end
   end
 
   context 'GET #show' do
-    render_views
     before { get :show, enterprise_id: internship.enterprise, id: internship }
 
-    it 'renders show template' do
-      expect(response).to render_template(:show)
+    it 'assigns internship' do
+      expect(assigns(:internship)).not_to be_nil
+    end
+
+    context 'on view' do
+      render_views
+
+      it 'renders show template' do
+        expect(response).to render_template(:show)
+      end
+    end
+  end
+
+  context 'GET #edit' do
+    before { get :edit, enterprise_id: internship.enterprise, id: internship }
+
+    it 'assigns internship' do
+      expect(assigns(:internship)).not_to be_nil
+    end
+
+    context 'on view' do
+      render_views
+
+      it 'renders the edit template' do
+        expect(response).to render_template(:edit)
+      end
+    end
+  end
+
+  context 'PATCH #update' do
+    context 'on successfull' do
+      it 'updates internships title' do
+        patch :update, enterprise_id: internship.enterprise, id: internship,
+        internship: { title: 'PAC' }
+
+        internship.reload
+        expect(internship.title).to eq('PAC')
+      end
+
+      it 'update internship courses' do
+        patch :update, enterprise_id: internship.enterprise, id: internship,
+        internship: { course_ids: [internship.courses.first.id] }
+        element_not_present = internship.courses.select { |e| e.name = 'PM' }
+        internship.reload
+        expect(internship.courses).not_to include(element_not_present)
+      end
+    end
+
+    context 'on failure' do
+      it 'renders the edit template' do
+        patch :update, enterprise_id: internship.enterprise, id: internship,
+        internship: { course_ids: [] }
+
+        expect(response).to render_template(:edit)
+      end
+    end
+  end
+
+  context 'DELETE #destroy' do
+    it 'redirects to enterprise_internships_path' do
+      expect do
+        delete :destroy, enterprise_id: internship.enterprise, id: internship
+
+        expect(response).to redirect_to enterprise_internships_path(
+          internship.enterprise
+        )
+      end.to change(Internship, :count).by(-1)
     end
   end
 end
