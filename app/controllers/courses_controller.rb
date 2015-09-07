@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_course, only: [:show, :edit, :update, :destroy]
+  before_action :find_course, only: [:edit, :update, :destroy]
 
   def index
     @courses = Course.all
@@ -19,8 +19,6 @@ class CoursesController < ApplicationController
       render :new, alert: 'falha ao salvar curso!'
     end
   end
-
-  def show; end
 
   def edit; end
 

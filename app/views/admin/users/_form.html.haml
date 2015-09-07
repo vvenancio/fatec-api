@@ -6,7 +6,7 @@
 
   = f.input :email, as: :email
 
-  - if action_name == 'new'
+  - if action_name != 'update'
 
     = f.input :password, as: :password
 

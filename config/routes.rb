@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :notices
 
-  resources :courses
+  resources :courses, except: [:show]
 
   resources :enterprises do
     resources :internships

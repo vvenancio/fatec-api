@@ -1,4 +1,6 @@
-%h1 Empresas
+.page-header
+  %h1 Empresas
+  = link_to 'Adicionar', new_enterprise_path
 - unless @enterprises.empty?
   %table.table.table-hover
     %thead
@@ -13,11 +15,12 @@
         %tr
           %td= enterprise.fantasy_name
           %td= enterprise.corporate_name
-          %td= enterprise.site
+          %td= link_to enterprise.site, enterprise.site, target: :blank
           %td= link_to 'Adicionar', new_enterprise_internship_path(enterprise)
           %td= link_to 'Visualizar', enterprise_path(enterprise)
           %td= link_to 'Editar', edit_enterprise_path(enterprise)
           %td
             = link_to 'Apagar', enterprise_path(enterprise), method: :delete, data: { confirm: "Deseja excluir a empresa #{enterprise.fantasy_name}?" }
 - else
-  %span Não há empresas cadastradas
+  .alert.alert-warning{ role: "alert" }
+    Não há empresas cadastradas!

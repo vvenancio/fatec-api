@@ -7,7 +7,7 @@ RSpec.describe CoursesController, type: :controller do
 
   before { sign_in user }
 
-  context 'when GET #index' do
+  context 'GET #index' do
     before { get :index }
 
     it 'assigns courses' do
@@ -24,7 +24,7 @@ RSpec.describe CoursesController, type: :controller do
     end
   end
 
-  context 'when GET #new' do
+  context 'GET #new' do
     before { get :new }
 
     it 'creates a new instance of course' do
@@ -40,7 +40,7 @@ RSpec.describe CoursesController, type: :controller do
     end
   end
 
-  context 'when POST #create' do
+  context 'POST #create' do
     it 'creates a new course' do
       expect do
         post :create, course: attributes_for(:course)
@@ -49,19 +49,7 @@ RSpec.describe CoursesController, type: :controller do
     end
   end
 
-  context 'when GET #show' do
-    before { get :show, id: course.id }
-
-    context 'on view' do
-      render_views
-
-      it 'renders the template' do
-        expect(response).to render_template(:show)
-      end
-    end
-  end
-
-  context 'when GET #edit' do
+  context 'GET #edit' do
     before { get :edit, id: course.id }
 
     it 'assigns course' do
@@ -77,7 +65,7 @@ RSpec.describe CoursesController, type: :controller do
     end
   end
 
-  context 'when PATCH #update' do
+  context 'PATCH #update' do
     before { patch :update, id: course.id, course: { name: 'Sistemas' } }
 
     it 'updates a course' do
@@ -108,7 +96,7 @@ RSpec.describe CoursesController, type: :controller do
     end
   end
 
-  context 'when DELETE #destroy' do
+  context 'DELETE #destroy' do
     it 'destroys a course' do
       expect { delete :destroy, id: course.id }.to change(Course, :count).by(-1)
       expect(response).to redirect_to courses_path
