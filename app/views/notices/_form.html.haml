@@ -1,0 +1,13 @@
+= simple_form_for(@notice, html: { class: 'form-horizontal' }) do |f|
+
+  = f.input :title
+
+  = f.input :description, as: :text
+
+  = f.input :reduced_description, as: :text
+
+  = f.input :reference
+
+  = f.association :courses, as: :check_boxes
+
+  = f.button :submit, 'Gravar'

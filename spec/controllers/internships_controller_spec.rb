@@ -34,13 +34,13 @@ RSpec.describe InternshipsController, type: :controller do
           :publication_time, :start_date, :end_date,
           :requirements, :semester, :benefits, :observation, :title,
           course_ids: []
-          ).for(:create, params: {
-              enterprise_id: internship.enterprise,
-              internship: attributes_for(:internship).merge(
-                course_ids: internship.courses.map { |course| course.id }
-              )
-            }
-          )
+        ).for(:create, params: {
+            enterprise_id: internship.enterprise,
+            internship: attributes_for(:internship).merge(
+              course_ids: internship.courses.map { |course| course.id }
+            )
+          }
+        )
       end
     end
 

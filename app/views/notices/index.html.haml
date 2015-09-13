@@ -1,0 +1,31 @@
+.page-header
+  %h1 Notícias
+- unless @notices.empty?
+  %table.table.table-hover
+    %thead
+      %tr
+        %td= :title
+        %td= :reduced_description
+        %td= :publication_time
+        %td= :description
+        %td= :reference
+        %td{ colspan: 3 }
+    %tbody
+      - @notices.each do |notice|
+        %tr
+          %td= notice.title
+          %td= notice.reduced_description
+          %td= notice.publication_time
+          %td= notice.description
+          %td= notice.reference
+          %td
+            = link_to 'Visualizar', notice_path(notice)
+          %td
+            = link_to 'Editar',
+            edit_notice_path(notice)
+          %td
+            = link_to 'Apagar',
+            notice_path(notice), method: :delete, data: { confirm: "Deseja excluir a notícia #{notice.title}?" }
+- else
+  .alert.alert-warning{ role: "alert" }
+    Não há notícias cadastradas!
