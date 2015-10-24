@@ -1,21 +1,23 @@
 .page-header
-  %h1 Cursos
-  = link_to 'Adicionar', new_course_path
+  %h1
+    Cursos
+    %small
+      = link_to image_tag("model-add.png"), new_course_path
 - unless @courses.empty?
-  %table.table.table-hover
+  %table.table.table-hover.table-striped
     %thead
       %tr
-        %td= :name
-        %td= :abreviation
-        %td{ colspan: 2 }
+        %th= Course.human_attribute_name(:name)
+        %th= Course.human_attribute_name(:abreviation)
+        %th{ colspan: 2 }
     %tbody
       - @courses.each do |course|
         %tr
           %td= course.name
           %td= course.abreviation
-          %td= link_to 'Editar', edit_course_path(course)
+          %td= link_to image_tag("lapis.png"), edit_course_path(course)
           %td
-            = link_to 'Apagar', course_path(course), method: :delete, data: { confirm: "Deseja excluir a empresa #{course.name}?" }
+            = link_to image_tag("delete.png"), course_path(course), method: :delete, data: { confirm: "Deseja excluir a empresa #{course.name}?" }
 - else
   .alert.alert-warning{ role: "alert" }
     Não há cursos cadastradas

@@ -1,13 +1,12 @@
-= simple_form_for([:admin, @user], html: { class: 'form-horizontal' }) do |f|
+.center-alignment
+  = simple_form_for([:admin, @user]) do |f|
+    .form-inputs
+      = f.input :name
+      = f.input :role, collection: @roles, include_blank: false
+      = f.input :email, as: :email
 
-  = f.input :name
+      - if action_name != 'edit'
+        = f.input :password, as: :password
 
-  = f.input :role, collection: @roles
-
-  = f.input :email, as: :email
-
-  - if action_name != 'update'
-
-    = f.input :password, as: :password
-
-  = f.button :submit, 'Enviar'
+    .form-actions
+      = f.button :submit, t('submit')

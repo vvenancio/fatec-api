@@ -1,5 +1,4 @@
 class EnterprisesController < ApplicationController
-  before_action :authenticate_user!
   before_action :find_enterprise, except: [:new, :create, :index]
 
   def index

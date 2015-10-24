@@ -1,6 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :authenticate_user!
-  before_action :find_course, only: [:edit, :update, :destroy]
+  before_action :find_course, only: [:edit, :update, :destroy, :show]
 
   def index
     @courses = Course.all
@@ -21,6 +20,10 @@ class CoursesController < ApplicationController
   end
 
   def edit; end
+
+  def show
+    render :show, layout: false if request.xhr?
+  end
 
   def update
     if @course.update_attributes(course_params)

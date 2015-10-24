@@ -1,5 +1,4 @@
 class InternshipsController < ApplicationController
-  before_action :authenticate_user!
   before_action :find_internship, except: [:index, :new, :create]
 
   def index
@@ -25,7 +24,9 @@ class InternshipsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    render :show, layout: false if request.xhr?
+  end
 
   def edit; end
 

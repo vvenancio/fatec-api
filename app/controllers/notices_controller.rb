@@ -1,5 +1,4 @@
 class NoticesController < ApplicationController
-  before_action :authenticate_user!
   before_action :find_notice, except: [:index, :new, :create]
 
   def index
@@ -21,7 +20,9 @@ class NoticesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    render :show, layout: false if request.xhr?
+  end
 
   def edit; end
 

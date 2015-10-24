@@ -1,7 +1,10 @@
-= simple_form_for(@course, html: { class: 'form-horizontal' }) do |f|
+.center-alignment
+  = simple_form_for(@course) do |f|
 
-  = f.input :name
+    .form-inputs
+      = f.input :name
 
-  = f.input :abreviation
+      = f.input :abreviation
 
-  = f.button :submit, 'Gravar'
+    .form-actions
+      = f.button :submit, 'Gravar'

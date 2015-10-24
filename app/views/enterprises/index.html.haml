@@ -1,26 +1,30 @@
 .page-header
-  %h1 Empresas
-  = link_to 'Adicionar', new_enterprise_path
+  %h1
+    Empresas
+    %small
+      = link_to image_tag("model-add.png"), new_enterprise_path
+
 - unless @enterprises.empty?
-  %table.table.table-hover
+  %table.table.table-hover.table-striped
     %thead
       %tr
-        %td= :fantasy_name
-        %td= :corporate_name
-        %td= :site
-        %td= :estágio
-        %td{ colspan: 3 }
+        %th= Enterprise.human_attribute_name(:fantasy_name)
+        %th= Enterprise.human_attribute_name(:corporate_name)
+        %th= Enterprise.human_attribute_name(:site)
+        %th{ colspan: 2 }
+          = Enterprise.human_attribute_name(:internship)
+        %th{ colspan: 3 }
     %tbody
       - @enterprises.each do |enterprise|
         %tr
           %td= enterprise.fantasy_name
           %td= enterprise.corporate_name
           %td= link_to enterprise.site, enterprise.site, target: :blank
-          %td= link_to 'Adicionar', new_enterprise_internship_path(enterprise)
-          %td= link_to 'Visualizar', enterprise_path(enterprise)
-          %td= link_to 'Editar', edit_enterprise_path(enterprise)
+          %td= link_to image_tag("add.png"), new_enterprise_internship_path(enterprise)
+          %td= link_to image_tag("lupa.png"), enterprise_internships_path(enterprise)
+          %td= link_to image_tag("lapis.png"), edit_enterprise_path(enterprise)
           %td
-            = link_to 'Apagar', enterprise_path(enterprise), method: :delete, data: { confirm: "Deseja excluir a empresa #{enterprise.fantasy_name}?" }
+            = link_to image_tag("delete.png"), enterprise_path(enterprise), method: :delete, data: { confirm: "Deseja excluir a empresa #{enterprise.fantasy_name}?" }
 - else
   .alert.alert-warning{ role: "alert" }
     Não há empresas cadastradas!

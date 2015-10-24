@@ -1,0 +1,29 @@
+pt-BR:
+  activerecord:
+    models:
+      internship: Estágio
+    attributes:
+      internship:
+        title: Título
+        semester: Semestre
+        publication_time: Data de publicação
+        start_date: Data de início
+        end_date: Data limite
+        observation: Observação
+        requirements: Requisitos
+    errors:
+      models:
+        internship:
+          attributes:
+            title:
+              blank: "deve ser preenchido"
+            semester:
+              blank: "deve ser preenchido"
+            publication_time:
+              blank: "deve ser preenchido"
+            start_date:
+              blank: "deve ser preenchido"
+            end_date:
+              blank: "deve ser preenchido"
+            requirements:
+              blank: "deve ser preenchido"

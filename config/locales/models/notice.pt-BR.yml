@@ -1,0 +1,27 @@
+pt-BR:
+  activerecord:
+    models:
+      notice: Cursos
+    attributes:
+      notice:
+        title: Título
+        publication_time: Hora de publicação
+        description: Descrição
+        reduced_description: Descrição reduzida
+        courses: Curso
+        reference: Referência
+
+    errors:
+      models:
+        notice:
+          attributes:
+            title:
+              blank: "deve ser preenchido"
+            publication_time:
+              blank: "deve ser preenchido"
+            description:
+              blank: "deve ser preenchido"
+            reduced_description:
+              blank: "deve ser preenchido"
+            courses:
+              blank: "deve estar incluso"

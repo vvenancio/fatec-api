@@ -1,31 +1,30 @@
 .page-header
-  %h1 Notícias
+  %h1
+    Notícias
+    %small= link_to image_tag("model-add.png"), new_notice_path
 - unless @notices.empty?
-  %table.table.table-hover
+  %table.table.table-hover.table-striped
     %thead
       %tr
-        %td= :title
-        %td= :reduced_description
-        %td= :publication_time
-        %td= :description
-        %td= :reference
-        %td{ colspan: 3 }
+        %th= Notice.human_attribute_name(:title)
+        %th= Notice.human_attribute_name(:publication_time)
+        %th= Notice.human_attribute_name(:reference)
+        %th{ colspan: 3 }
     %tbody
       - @notices.each do |notice|
         %tr
           %td= notice.title
-          %td= notice.reduced_description
-          %td= notice.publication_time
-          %td= notice.description
+          %td= l(notice.publication_time)
           %td= notice.reference
+          %td= link_to image_tag("lupa.png"), '#', data: { link: notice_path(notice), toggle: "modal", target: ".myModal" }, class: 'ajax-link'
           %td
-            = link_to 'Visualizar', notice_path(notice)
-          %td
-            = link_to 'Editar',
+            = link_to image_tag("lapis.png"),
             edit_notice_path(notice)
           %td
-            = link_to 'Apagar',
+            = link_to image_tag("delete.png"),
             notice_path(notice), method: :delete, data: { confirm: "Deseja excluir a notícia #{notice.title}?" }
 - else
   .alert.alert-warning{ role: "alert" }
     Não há notícias cadastradas!
+
+= render 'shared/default_modal'

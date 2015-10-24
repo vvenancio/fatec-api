@@ -12,7 +12,7 @@ RSpec.describe Devise::SessionsController, type: :controller do
       it 'redirects to admin dashboard after a successful login' do
         user = create(:user, :admin, password: '12345678')
         redirecting_after_login_depending_user_role(user)
-        expect(response).to redirect_to admin_users_path
+        expect(response).to redirect_to admin_dashboard_path
       end
     end
 
@@ -20,7 +20,7 @@ RSpec.describe Devise::SessionsController, type: :controller do
       it 'redirects to user dashboard after a successful login' do
         user = create(:user, password: '12345678')
         redirecting_after_login_depending_user_role(user)
-        expect(response).to redirect_to courses_path
+        expect(response).to redirect_to dashboard_path
       end
     end
   end

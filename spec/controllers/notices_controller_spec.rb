@@ -92,6 +92,14 @@ RSpec.describe NoticesController, type: :controller do
       it 'renders the show template' do
         expect(response).to render_template(:show)
       end
+
+      context 'given a xhr request' do
+        before { xhr :get, :show, id: notice.id }
+
+        it 'renders no layout' do
+          expect(response).to render_template(layout: false)
+        end
+      end
     end
   end
 

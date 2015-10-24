@@ -1,34 +1,33 @@
 .page-header
-  %h1 Estágios
+  %h1
+    Estágios
+    %small= link_to image_tag("model-add.png"), new_enterprise_internship_path(params[:enterprise_id])
 - unless @internships.empty?
   %table.table.table-hover
     %thead
       %tr
-        %td= :title
-        %td= :semester
-        %td= :publication_time
-        %td= :start_date
-        %td= :end_date
-        %td{ colspan: 3 }
+        %th= Internship.human_attribute_name(:title)
+        %th= Internship.human_attribute_name(:semester)
+        %th= Internship.human_attribute_name(:publication_time)
+        %th= Internship.human_attribute_name(:start_date)
+        %th= Internship.human_attribute_name(:end_date)
+        %th{ colspan: 2 }
     %tbody
       - @internships.each do |internship|
         %tr
           %td= internship.title
           %td= internship.semester
-          %td= internship.publication_time
-          %td= internship.start_date
-          %td= internship.end_date
+          %td= l(internship.publication_time)
+          %td= l(internship.start_date)
+          %td= l(internship.end_date)
           %td
-            = link_to 'Adicionar',
-            new_enterprise_internship_path(internship.enterprise)
+            = link_to image_tag("lupa.png"), nil,
+            'data-link': enterprise_internship_path(internship.enterprise, internship), class: 'ajax-link'
           %td
-            = link_to 'Visualizar',
-            enterprise_internship_path(internship.enterprise, internship)
-          %td
-            = link_to 'Editar',
+            = link_to image_tag("lapis.png"),
             edit_enterprise_internship_path(internship.enterprise, internship)
           %td
-            = link_to 'Apagar',
+            = link_to image_tag("delete.png"),
             enterprise_internship_path(internship.enterprise, internship), method: :delete, data: { confirm: "Deseja excluir a vaga #{internship.title}?" }
 - else
   .alert.alert-warning{ role: "alert" }

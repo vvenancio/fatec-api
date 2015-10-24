@@ -1,13 +1,16 @@
-= simple_form_for(@notice, html: { class: 'form-horizontal' }) do |f|
+.center-alignment
+  = simple_form_for(@notice) do |f|
 
-  = f.input :title
+    .form-inputs
+      = f.input :title
 
-  = f.input :description, as: :text
+      = f.input :description, as: :text
 
-  = f.input :reduced_description, as: :text
+      = f.input :reduced_description, as: :text
 
-  = f.input :reference
+      = f.input :reference
 
-  = f.association :courses, as: :check_boxes
+      = f.association :courses, as: :check_boxes
 
-  = f.button :submit, 'Gravar'
+    .form-actions
+      = f.button :submit, 'Gravar'

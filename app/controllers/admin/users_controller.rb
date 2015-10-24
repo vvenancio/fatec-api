@@ -1,6 +1,6 @@
 class Admin::UsersController < Admin::BaseController
   before_action :find_user, except: [:new, :create, :index]
-  before_action :find_roles, except: :show
+  before_action :find_roles
   before_action :cannot_be_self_destroyed!, only: :destroy
 
   def index
@@ -21,13 +21,11 @@ class Admin::UsersController < Admin::BaseController
     end
   end
 
-  def show; end
-
   def edit; end
 
   def update
     if @user.update(update_params)
-      redirect_to admin_user_path, notice: 'Atualizado com sucesso!'
+      redirect_to admin_users_path, notice: 'Atualizado com sucesso!'
     else
       render :edit, alert: 'Falha ao atualizar!'
     end

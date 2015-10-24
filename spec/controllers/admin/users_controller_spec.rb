@@ -71,22 +71,6 @@ RSpec.describe Admin::UsersController, type: :controller do
     end
   end
 
-  context 'GET #show' do
-    before { get :show, id: user.id }
-
-    it 'assigns user' do
-      expect(assigns(:user)).not_to be_nil
-    end
-
-    context 'on view' do
-      render_views
-
-      it 'renders the template' do
-        expect(response).to render_template(:show)
-      end
-    end
-  end
-
   context 'GET #edit' do
     before { get :edit, id: user.id }
 
@@ -110,7 +94,7 @@ RSpec.describe Admin::UsersController, type: :controller do
         user_before_update = user.name
         user.reload
         expect(user.name).not_to eq(user_before_update)
-        expect(response).to redirect_to admin_user_path user
+        expect(response).to redirect_to admin_users_path
       end
 
       context 'on update params' do

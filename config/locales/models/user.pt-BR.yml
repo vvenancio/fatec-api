@@ -1,0 +1,42 @@
+pt-BR:
+  activerecord:
+    models:
+      user: Usuário
+    attributes:
+      user:
+        admin: Administrador
+        operator: Operador
+        user: Usuário
+        name: Nome
+        email: E-mail
+        last_login: Último login
+        role: Categoria
+        password: Senha
+        password_confirmation: Confirmação da senha
+        enum:
+          role:
+            admin: Administrador
+            operator: Operador
+        current_password: Senha
+
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "deve ser preenchido"
+              taken: "indisponível"
+              invalid: "inválido"
+            name:
+              blank: "deve ser preenchido"
+              too_long: "muito extenso"
+            password:
+              invalid: "inválido"
+              blank: "deve ser preenchida"
+              too_short: "muito curta. (mínimo de 8 caracteres)"
+            password_confirmation:
+              confirmation: "diferentes"
+            role:
+              blank: "deve ser preenchida"
+            current_password:
+              blank: "atual deve ser preenchida"

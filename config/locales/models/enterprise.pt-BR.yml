@@ -1,0 +1,19 @@
+pt-BR:
+  activerecord:
+    models:
+      enterprise: Empresa
+    attributes:
+      enterprise:
+        fantasy_name: Nome fantasia
+        corporate_name: Nome
+        site: Site
+        internship: Estágio
+
+    errors:
+      models:
+        enterprise:
+          attributes:
+            fantasy_name:
+              blank: "deve ser preenchido"
+            corporate_name:
+              blank: "deve ser preenchido"

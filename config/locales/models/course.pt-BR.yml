@@ -1,0 +1,17 @@
+pt-BR:
+  activerecord:
+    models:
+      course: Cursos
+    attributes:
+      course:
+        abreviation: Abreviação
+        name: Nome
+
+    errors:
+      models:
+        course:
+          attributes:
+            abreviation:
+              blank: "deve ser preenchido"
+            name:
+              blank: "deve ser preenchido"
