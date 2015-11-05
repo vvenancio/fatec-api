@@ -25,7 +25,7 @@
 }
 
 .main {
-  min-height: 550px;
+  min-height: 540px;
 }
 
 .center-alignment {
@@ -38,6 +38,7 @@ footer {
   background: WhiteSmoke;
   height: 70px;
   padding-top: 10px;
+  margin-top: 20px;
 }
 
 footer span {

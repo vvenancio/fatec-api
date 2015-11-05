@@ -1,6 +1,14 @@
 .jumbotron
-  %h1= "Olá, #{current_user.name}!"
-  %p This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
-  - if current_user.admin?
-    %p
-      = link_to "Usuários", admin_users_path, class: 'btn btn-primary btn-lg', role: 'button'
+  %h1 Olá, #{current_user.name}!
+  %span
+    %strong Último login:
+    #{l(current_user.last_sign_in_at.to_date)}
+  %br
+  %span
+    %strong Última atualização:
+    #{l(current_user.updated_at.to_date)}
+.page-header
+  %h1 Links uteis
+.row
+  .col-xs-6.col-md-3
+    = link_to image_tag('predio.png'), '#', class: 'thumbnail'

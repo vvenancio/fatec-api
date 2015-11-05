@@ -1,32 +1,30 @@
-%h1 Estágio
-%p
-  %h2 Título:
-  %h3=@internship.title
-%p
-  %h2 Observação:
-  %h3=@internship.observation
-%p
-  %h2 Benefícios:
-  %h3=@internship.benefits
-%p
-  %h2 Semestre:
-  %h3=@internship.semester
-%p
-  %h2 Requisitos:
-  %h3=@internship.requirements
-%p
-  %h2 Hora de publicação:
-  %h3=@internship.publication_time
-%p
-  %h2 Nome da empresa:
-  %h3=@internship.enterprise.corporate_name
-%p
-  %h2 Data de início:
-  %h3=@internship.start_date
-%p
-  %h2 Data limite:
-  %h3=@internship.end_date
-%p
-  %h2 Cursos:
-  - @internship.courses.each do |course|
-    %h3=course.name
+%span
+  %strong Título:
+  =@internship.title
+%span
+  %strong Observação:
+  =@internship.observation
+%span
+  %strong Benefícios:
+  =@internship.benefits
+%span
+  %strong Semestre:
+  =@internship.semester
+%span
+  %strong Requisitos:
+  =@internship.requirements
+%span
+  %strong Hora de publicação:
+  =l(@internship.publication_time)
+%span
+  %strong Nome da empresa:
+  =@internship.enterprise.corporate_name
+%span
+  %strong Data de início:
+  =l(@internship.start_date)
+%span
+  %strong Data limite:
+  =l(@internship.end_date)
+%span
+  %strong Cursos:
+  =@internship.courses.map(&:abreviation).to_sentence
