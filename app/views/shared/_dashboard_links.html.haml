@@ -8,7 +8,31 @@
     %strong Última atualização:
     #{l(current_user.updated_at.to_date)}
 .page-header
-  %h1 Links uteis
+  %h1 Links úteis
 .row
   .col-xs-6.col-md-3
-    = link_to image_tag('predio.png'), '#', class: 'thumbnail'
+    = link_to new_course_path, class: 'thumbnail' do |link|
+      .useful-links
+        = image_tag('college.png')
+        %span Novo curso
+  %span.clear
+
+  .col-xs-6.col-md-3
+    = link_to new_enterprise_path, class: 'thumbnail' do |link|
+      .useful-links
+        = image_tag('people.png')
+        %span Nova empresa
+  %span.clear
+
+  .col-xs-6.col-md-3
+    = link_to new_notice_path, class: 'thumbnail' do |link|
+      .useful-links
+        = image_tag('news.png')
+        %span Nova notícia
+  %span.clear
+
+  .col-xs-6.col-md-3
+    = link_to '#', class: 'thumbnail' do |link|
+      .useful-links
+        %img
+        %span teste, teste

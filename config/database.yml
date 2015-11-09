@@ -2,7 +2,8 @@ default: &default
   adapter: postgresql
   pool: 5
   timeout: 5000
-  username: api
+  # username: api
+  username: mapa_eleitoral
 
 development:
   <<: *default
