@@ -30,6 +30,14 @@ RSpec.describe NoticesController, type: :controller do
       expect(assigns(:notice)).to be_a_new(Notice)
     end
 
+    context 'given a xhr request' do
+      before { xhr :get, :new }
+
+      it 'renders no layout' do
+        expect(response).to render_template(layout: false)
+      end
+    end
+
     context 'on view' do
       render_views
 

@@ -7,6 +7,8 @@ class NoticesController < ApplicationController
 
   def new
     @notice = Notice.new
+
+    render :new, layout: false if request.xhr?
   end
 
   def create

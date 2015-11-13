@@ -9,6 +9,7 @@ pt-BR:
   new_user: Novo usuário
   logout: Sair
   submit: Gravar
+  users: Usuários
   date:
     abbr_day_names:
     - Dom

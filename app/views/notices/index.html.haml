@@ -1,7 +1,7 @@
 .page-header
   %h1
     Notícias
-    %small= link_to image_tag("model-add.png"), new_notice_path
+    %small= link_to image_tag("add.png"), new_notice_path
 - unless @notices.empty?
   %table.table.table-hover.table-striped
     %thead
@@ -16,13 +16,13 @@
           %td= notice.title
           %td= l(notice.publication_time)
           %td= notice.reference
-          %td= link_to image_tag("lupa.png"), '#', data: { link: notice_path(notice), toggle: "modal", target: ".myModal" }, class: 'ajax-link'
+          %td= link_to image_tag("lupa.png"), '#', data: { link: notice_path(notice), toggle: "modal", target: ".myModal" }, title: 'freepik', class: 'ajax-link'
           %td
             = link_to image_tag("lapis.png"),
-            edit_notice_path(notice)
+            edit_notice_path(notice), title: 'freepik'
           %td
             = link_to image_tag("delete.png"),
-            notice_path(notice), method: :delete, data: { confirm: "Deseja excluir a notícia #{notice.title}?" }
+            notice_path(notice), method: :delete, data: { confirm: "Deseja excluir a notícia #{notice.title}?" }, title: 'freepik'
 - else
   .alert.alert-warning{ role: "alert" }
     Não há notícias cadastradas!

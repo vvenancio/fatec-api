@@ -7,6 +7,8 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
+
+    render :new, layout: false if request.xhr?
   end
 
   def create

@@ -16,7 +16,11 @@
 
 * {
   margin: 0;
-  padding: 0
+  padding: 0;
+}
+
+h1 {
+  text-transform: uppercase;
 }
 
 .navbar {
@@ -47,7 +51,15 @@ footer {
   display: block;
   text-align: center;
   padding: 5px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
   font-style: italic;
+  color: #777777;
+}
+
+.add-icon-margin {
+  margin: 0 0 20px 12px;
 }
 
 .sign_in {
@@ -69,11 +81,34 @@ footer {
 }
 
 .useful-links span {
-  padding: 4px;
+  padding: 8px;
   width: 100%;
   display: block;
   height: 30px;
   text-align: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  font-style: italic;
+  color: #777777;
+}
+
+.jumbotron {
+  position: relative;
+}
+
+.jumbotron img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 400px;
+  height: 200px;
+}
+
+.thumbnail:hover {
+  text-decoration: none;
+  border: 1px solid #dddddd!important;
+  box-shadow: 1px -2px 2px #dddddd;
 }
 
 img {

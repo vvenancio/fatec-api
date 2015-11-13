@@ -1,7 +1,7 @@
 .page-header
   %h1
     Usuários
-    %small= link_to image_tag("model-add.png"), new_admin_user_path
+    %small= link_to image_tag("add.png"), new_admin_user_path
 - unless @users.empty?
   %table.table.table-hover.table-striped
     %thead
@@ -18,7 +18,7 @@
           %td= user.role
           %td= link_to image_tag("lapis.png"), edit_admin_user_path(user)
           %td
-            = link_to image_tag("delete.png"), admin_user_path(user), method: :delete, data: { confirm: "Deseja excluir a empresa #{user.name}?" }
+            = link_to image_tag("delete.png"), admin_user_path(user), method: :delete, data: { confirm: "Deseja excluir o usuário #{user.name}?" }
 - else
   .alert.alert-warning{ role: "alert" }
     Não há usuários cadastradas

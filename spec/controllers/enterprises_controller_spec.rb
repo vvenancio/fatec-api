@@ -30,6 +30,14 @@ RSpec.describe EnterprisesController, type: :controller do
       expect(assigns(:enterprise)).to be_a_new(Enterprise)
     end
 
+    context 'given a xhr request' do
+      before { xhr :get, :new }
+
+      it 'renders no layout' do
+        expect(response).to render_template(layout: false)
+      end
+    end
+
     context 'on view' do
       render_views
 

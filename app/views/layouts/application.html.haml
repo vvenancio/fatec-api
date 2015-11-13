@@ -47,9 +47,6 @@
                 %li= link_to t('courses'), courses_path
                 %li= link_to t('notices'), notices_path
               %ul.nav.navbar-nav.navbar-right
-                %li
-                  = link_to t('new_user'),
-                    new_admin_user_path unless current_user.operator?
                 %li.dropdown
                   %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
                     = current_user.name

@@ -7,6 +7,8 @@ class EnterprisesController < ApplicationController
 
   def new
     @enterprise = Enterprise.new
+
+    render :new, layout: false if request.xhr?
   end
 
   def create

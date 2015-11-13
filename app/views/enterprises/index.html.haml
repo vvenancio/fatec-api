@@ -2,7 +2,7 @@
   %h1
     Empresas
     %small
-      = link_to image_tag("model-add.png"), new_enterprise_path
+      = link_to image_tag("add.png", class: 'add-icon-margin'), new_enterprise_path
 
 - unless @enterprises.empty?
   %table.table.table-hover.table-striped
@@ -13,7 +13,7 @@
         %th= Enterprise.human_attribute_name(:site)
         %th{ colspan: 2 }
           = Enterprise.human_attribute_name(:internship)
-        %th{ colspan: 3 }
+        %th{ colspan: 2 }
     %tbody
       - @enterprises.each do |enterprise|
         %tr
@@ -21,7 +21,6 @@
           %td= enterprise.corporate_name
           %td= link_to enterprise.site, enterprise.site, target: :blank
           %td= link_to image_tag("add.png"), new_enterprise_internship_path(enterprise)
-          %td= link_to image_tag("lupa.png"), enterprise_internships_path(enterprise)
           %td= link_to image_tag("lapis.png"), edit_enterprise_path(enterprise)
           %td
             = link_to image_tag("delete.png"), enterprise_path(enterprise), method: :delete, data: { confirm: "Deseja excluir a empresa #{enterprise.fantasy_name}?" }
