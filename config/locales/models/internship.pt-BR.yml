@@ -11,6 +11,7 @@ pt-BR:
         end_date: Data limite
         observation: Observação
         requirements: Requisitos
+        benefits: Benefícios
     errors:
       models:
         internship:
@@ -26,4 +27,6 @@ pt-BR:
             end_date:
               blank: "deve ser preenchido"
             requirements:
+              blank: "deve ser preenchido"
+            benefits:
               blank: "deve ser preenchido"

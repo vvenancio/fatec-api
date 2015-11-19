@@ -19,6 +19,10 @@
   padding: 0;
 }
 
+body {
+  background: #EEE;
+}
+
 h1 {
   text-transform: uppercase;
 }
@@ -37,12 +41,29 @@ h1 {
   margin: 0 auto;
 }
 
+.page-header {
+  border-bottom: 2px solid gray!important;
+  margin-bottom: 50px;
+}
+
+small {
+  font-style: italic;
+}
+
 footer {
   border-top: 4px solid #e7e7e7;
   background: WhiteSmoke;
   height: 70px;
   padding-top: 10px;
   margin-top: 20px;
+}
+
+.table th {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  font-style: italic;
+  color: #777777;
 }
 
 .footer-bottom {
@@ -93,8 +114,13 @@ footer {
   color: #777777;
 }
 
+textarea.form-control {
+  min-height: 120px;
+}
+
 .jumbotron {
   position: relative;
+  background: WhiteSmoke;
 }
 
 .jumbotron img {

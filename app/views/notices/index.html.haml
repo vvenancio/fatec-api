@@ -15,7 +15,7 @@
         %tr
           %td= notice.title
           %td= l(notice.publication_time)
-          %td= notice.reference
+          %td= link_to notice.reference
           %td= link_to image_tag("lupa.png"), '#', data: { link: notice_path(notice), toggle: "modal", target: ".myModal" }, title: 'freepik', class: 'ajax-link'
           %td
             = link_to image_tag("lapis.png"),

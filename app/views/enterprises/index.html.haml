@@ -11,8 +11,7 @@
         %th= Enterprise.human_attribute_name(:fantasy_name)
         %th= Enterprise.human_attribute_name(:corporate_name)
         %th= Enterprise.human_attribute_name(:site)
-        %th{ colspan: 2 }
-          = Enterprise.human_attribute_name(:internship)
+        %th= Enterprise.human_attribute_name(:internship)
         %th{ colspan: 2 }
     %tbody
       - @enterprises.each do |enterprise|
