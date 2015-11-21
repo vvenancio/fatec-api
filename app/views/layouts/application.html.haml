@@ -62,10 +62,10 @@
                         destroy_user_session_path, method: :delete
           / /.navbar-collapse
         / /.container-fluid
+    = bootstrap_flash
     .container.main
       .row
         .col-lg-12
-          = bootstrap_flash
           = yield
         / /span
       / /row

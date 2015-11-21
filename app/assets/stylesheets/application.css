@@ -30,10 +30,12 @@ h1 {
 .navbar {
   border-bottom: 3px solid #e7e7e7;
   border-radius: 0;
+  margin-bottom: 0;
 }
 
 .main {
   min-height: 540px;
+  margin-top: 50px;
 }
 
 .center-alignment {
@@ -116,6 +118,12 @@ footer {
 
 textarea.form-control {
   min-height: 120px;
+}
+
+.alert {
+  text-align: center;
+  width: 600px;
+  margin: 0 auto;
 }
 
 .jumbotron {
