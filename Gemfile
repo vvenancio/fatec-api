@@ -23,10 +23,10 @@ end
 group :development, :test do
   gem 'guard-rspec'
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
+  gem 'web-console', '~> 2.1', '>= 2.1.2'
   gem 'spring', '~> 1.3.6'
-  gem 'rspec-rails', '~> 3.0'
-  gem 'factory_girl_rails', '~> 4.0'
+  gem 'rspec-rails', '~> 3.3', '>= 3.3.3'
+  gem 'factory_girl_rails', '~> 4.5', '>= 4.5.0'
   gem 'pry-rails'
 end
 
