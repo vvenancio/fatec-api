@@ -14,7 +14,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'devise'
 gem 'simple_form'
 gem 'html2haml'
-gem 'rails-i18n'
+gem 'rails-i18n', '>= 8.0.0'
 
 group :development do
   gem 'better_errors'
