@@ -25,7 +25,7 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring', '~> 1.3.6'
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails', '~> 8.0', '>= 8.0.0'
   gem 'factory_girl_rails', '~> 4.0'
   gem 'pry-rails'
 end
